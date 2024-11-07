@@ -10,6 +10,7 @@ from re import sub, I
 from zipfile import ZipFile
 from termcolor import colored
 
+
 from Cryptodome.Hash import MD4
 from OpenSSL.SSL import SysCallError
 from bloodhound.ad.authentication import ADAuthentication
