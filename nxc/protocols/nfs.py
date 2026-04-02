@@ -108,9 +108,14 @@ class nfs(connection):
             self.portmap.connect()
 
             # Mount Initialization
-            self.mnt_port = self.portmap.getport(Mount.program, Mount.program_version)
-            self.mount = Mount(host=self.host, port=self.mnt_port, timeout=self.args.nfs_timeout, auth=self.auth)
-            self.mount.connect()
+            self.mount = Mount.from_portmap(
+                host=self.host,
+                timeout=self.args.nfs_timeout,
+                auth=self.auth,
+                preferred_port=None,
+                preferred_protocol="tcp",
+            )
+            self.mnt_port = self.mount.port
 
             # Change logging port to the NFS port
             self.port = self.mnt_port
