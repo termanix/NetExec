@@ -113,8 +113,7 @@ class nfs(connection):
                 timeout=self.args.nfs_timeout,
                 auth=self.auth,
                 preferred_port=None,
-                preferred_protocol="tcp",
-            )
+                preferred_protocol="tcp",)
             self.mnt_port = self.mount.port
 
             # Change logging port to the NFS port
